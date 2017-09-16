@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>FinWeb</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages />
+		<h2>
+			<h:outputText value="Selektionskriterien" />
+		</h2>
+
+		<h:outputLabel value="Status BTG" />
+		<h:selectOneMenu value="#{meldungSucheModel.basisdaten.statusBtg}">
+			<f:selectItems value="#{meldungSucheModel.statusBtgListe}" var="item"
+				itemLabel="#{item.name}" itemValue="#{item.statusId}" />
+		</h:selectOneMenu>
+		<br />
+
+		<h:outputLabel value="Transaktionsnummer" />
+		<h:inputText
+			value="#{meldungSucheModel.basisdaten.transaktionsnummer}" />
+		<br />
+
+		<h:outputLabel value="User-Field-3" />
+		<h:inputText value="#{meldungSucheModel.basisdaten.userField3}" />
+		<br />
+
+		<h:outputLabel value="User-Field-2" />
+		<h:inputText value="#{meldungSucheModel.basisdaten.userField2}" />
+		<br />
+
+		<h:commandButton action="#{meldungSucheForm.executeSuche}"
+			value="Suchen" />
+		<br />
+
+		<h2>Ergebnis</h2>
+		<h:dataTable value="#{meldungSucheModel.ergebnisModel.ergebnis}" var="row">
+			<h:column>
+				<f:facet name="header">Transaktionsnummer</f:facet>
+				<h:outputText value="#{row.transaktionsnummer}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">User-Field-3</f:facet>
+				<h:outputText value="#{row.userField3}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">User-Field-2</f:facet>
+				<h:outputText value="#{row.userField2}" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{meldungSucheForm.oeffneDetail(row)}" value="Detail">
+					<f:param name="gewaehlteId" value="#{row.meldungId}" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

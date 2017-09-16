@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>FinWeb</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages />
+		<h2>
+			<h:outputText value="Detailansicht" />
+		</h2>
+
+		<h:outputLabel value="MeldungId" />
+		<h:outputText value="#{meldungDetailModel.basisdaten.meldungId}" />
+		<br />
+
+		<h:outputLabel value="Transaktionsnummer" />
+		<h:outputText
+			value="#{meldungDetailModel.basisdaten.transaktionsnummer}" />
+		<br />
+
+		<h2>
+			<h:outputText value="Meldefelder" />
+		</h2>
+		<h:dataTable value="#{meldungDetailModel.meldedatenListe}" var="row">
+			<h:column>
+				<f:facet name="header">Wert</f:facet>
+				<h:outputText value="#{row.wert}" />
+			</h:column>
+		</h:dataTable>
+
+		<h:commandButton action="/meldedaten/suche" value="zu&uuml;ck zur Suche" />
+
+	</h:form>
+</h:body>
+</html>
