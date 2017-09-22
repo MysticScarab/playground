@@ -1,9 +1,20 @@
 package scarab.meldedaten.mifid;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Status {
 
+	@Id
+	@GeneratedValue
+	@Column(name="status_id")
 	private int statusId;
+	@Column(name="gruppe")
 	private String gruppe;
+	@Column(name="name")
 	private String name;
 
 	/**

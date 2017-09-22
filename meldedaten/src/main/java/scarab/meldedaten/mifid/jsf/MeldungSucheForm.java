@@ -18,7 +18,7 @@ public class MeldungSucheForm {
 
 	private static final String NAV_SUCHE = "/meldedaten/suche";
 	private static final String NAV_DETAIL = "/meldedaten/detail";
-	
+
 	@EJB
 	private MeldungService meldungService;
 
@@ -37,19 +37,17 @@ public class MeldungSucheForm {
 	public String executeSuche() {
 		FacesMessage message = new FacesMessage("Suche durchgeführt.");
 		FacesContext.getCurrentInstance().addMessage(null, message);
-		
-		model.getErgebnisModel().setErgebnis(meldungService.holeBasisdatenGefiltert());
+
+		model.getErgebnisModel().setErgebnis(meldungService.holeBasisdatenGefiltert(model.getBasisdaten()));
 
 		return null;
 	}
 
 	public String oeffneDetail(Basisdaten gewaehlteBasisdaten) {
-			if (null != gewaehlteBasisdaten) {
+		if (null != gewaehlteBasisdaten) {
 
 			detailModel.setBasisdaten(gewaehlteBasisdaten);
-
-			
-
+			detailModel.setFeldListe(meldungService.holeFelder());
 			detailModel.setMeldedatenListe(meldungService.holeMeldedatenFuerBasisdaten(gewaehlteBasisdaten));
 
 			return NAV_DETAIL;

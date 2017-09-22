@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>FinWeb</title>
+	<title>Plygrnd</title>
 </h:head>
 <h:body>
 	<h:form>
@@ -16,6 +16,20 @@
 		<h:outputLabel value="Status BTG" />
 		<h:selectOneMenu value="#{meldungSucheModel.basisdaten.statusBtg}">
 			<f:selectItems value="#{meldungSucheModel.statusBtgListe}" var="item"
+				itemLabel="#{item.name}" itemValue="#{item.statusId}" />
+		</h:selectOneMenu>
+		<br />
+		
+		<h:outputLabel value="Status ARM" />
+		<h:selectOneMenu value="#{meldungSucheModel.basisdaten.statusArm}">
+			<f:selectItems value="#{meldungSucheModel.statusArmListe}" var="item"
+				itemLabel="#{item.name}" itemValue="#{item.statusId}" />
+		</h:selectOneMenu>
+		<br />
+		
+		<h:outputLabel value="Status NCA" />
+		<h:selectOneMenu value="#{meldungSucheModel.basisdaten.statusNca}">
+			<f:selectItems value="#{meldungSucheModel.statusNcaListe}" var="item"
 				itemLabel="#{item.name}" itemValue="#{item.statusId}" />
 		</h:selectOneMenu>
 		<br />
@@ -50,6 +64,10 @@
 			<h:column>
 				<f:facet name="header">User-Field-2</f:facet>
 				<h:outputText value="#{row.userField2}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Meldetag</f:facet>
+				<h:outputText value="#{row.meldetag}" />
 			</h:column>
 			<h:column>
 				<h:commandLink action="#{meldungSucheForm.oeffneDetail(row)}" value="Detail">

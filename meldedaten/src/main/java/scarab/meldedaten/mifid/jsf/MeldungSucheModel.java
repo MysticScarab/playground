@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import scarab.meldedaten.mifid.Basisdaten;
 import scarab.meldedaten.mifid.Status;
+import scarab.meldedaten.mifid.service.StatusService;
 
 @Named
 @RequestScoped
@@ -17,6 +19,10 @@ public class MeldungSucheModel {
 
 	private Basisdaten basisdaten = new Basisdaten();
 	private List<Status> statusBtgListe = new ArrayList<Status>();
+	private List<Status> statusArmListe = new ArrayList<Status>();
+	private List<Status> statusNcaListe = new ArrayList<Status>();
+	
+	@EJB StatusService statusService;
 
 	@Inject
 	private MeldungSucheErgebnisModel ergebnisModel;
@@ -44,14 +50,28 @@ public class MeldungSucheModel {
 	public void setStatusBtgListe(List<Status> statusBtgListe) {
 		this.statusBtgListe = statusBtgListe;
 	}
+	
+	public List<Status> getStatusArmListe() {
+		return statusArmListe;
+	}
+
+	public void setStatusArmListe(List<Status> statusArmListe) {
+		this.statusArmListe = statusArmListe;
+	}
+
+	public List<Status> getStatusNcaListe() {
+		return statusNcaListe;
+	}
+
+	public void setStatusNcaListe(List<Status> statusNcaListe) {
+		this.statusNcaListe = statusNcaListe;
+	}
 
 	@PostConstruct
-	private void setupStatusBtgListe() {
-		// statusBtgListe.add(null);
-		statusBtgListe.add(new Status(1, "BTG", "offen"));
-		statusBtgListe.add(new Status(2, "BTG", "versandt"));
-		statusBtgListe.add(new Status(3, "BTG", "kontrolliert"));
-		statusBtgListe.add(new Status(4, "BTG", "unvollständig"));
+	private void setupStatusListen() {
+		statusBtgListe.addAll(statusService.getAlleStatusFuerGruppe("BTG"));
+		statusArmListe.addAll(statusService.getAlleStatusFuerGruppe("ARM"));
+		statusNcaListe.addAll(statusService.getAlleStatusFuerGruppe("NCA"));
 	}
 
 }

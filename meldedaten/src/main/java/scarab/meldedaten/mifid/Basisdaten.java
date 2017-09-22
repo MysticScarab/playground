@@ -2,16 +2,32 @@ package scarab.meldedaten.mifid;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Basisdaten {
 
+	@Id
+	@GeneratedValue
+	@Column(name = "meldung_id")
 	private long meldungId;
-	 private int statusBtg;
-//	private Status statusBtg;
+	@Column(name = "status_btg")
+	private int statusBtg;
+	// private Status statusBtg;
+	@Column(name = "status_arm")
 	private int statusArm;
+	@Column(name = "status_nca")
 	private int statusNca;
+	@Column(name = "transaktionsnummer")
 	private String transaktionsnummer;
+	@Column(name = "user_field_3")
 	private String userField3;
+	@Column(name = "user_field_2")
 	private String userField2;
+	@Column(name = "meldetag")
 	private Date meldetag;
 
 	public long getMeldungId() {
@@ -22,21 +38,21 @@ public class Basisdaten {
 		this.meldungId = meldungId;
 	}
 
-	 public int getStatusBtg() {
-	 return statusBtg;
-	 }
-	
-	 public void setStatusBtg(int statusBtg) {
-	 this.statusBtg = statusBtg;
-	 }
+	public int getStatusBtg() {
+		return statusBtg;
+	}
 
-//	public Status getStatusBtg() {
-//		return statusBtg;
-//	}
-//
-//	public void setStatusBtg(Status statusBtg) {
-//		this.statusBtg = statusBtg;
-//	}
+	public void setStatusBtg(int statusBtg) {
+		this.statusBtg = statusBtg;
+	}
+
+	// public Status getStatusBtg() {
+	// return statusBtg;
+	// }
+	//
+	// public void setStatusBtg(Status statusBtg) {
+	// this.statusBtg = statusBtg;
+	// }
 
 	public int getStatusArm() {
 		return statusArm;
