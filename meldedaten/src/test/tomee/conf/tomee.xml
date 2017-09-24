@@ -4,6 +4,7 @@
 
   <!-- activate next line to be able to deploy applications in apps -->
   <!-- <Deployments dir="apps" /> -->
+  <!-- 
 <Resource id="jdbc/datasource" type="javax.sql.DataSource">
     #  PostgreSQL example
     #
@@ -14,5 +15,15 @@
     jtaManaged = true
     #UserName     postgres
     #Password     pass
-</Resource>  
+</Resource>
+ -->
+<Resource id="jdbc/datasource" type="javax.sql.DataSource">
+    #Embedded Derby example
+
+    JdbcDriver org.apache.derby.jdbc.EmbeddedDriver
+    JdbcUrl jdbc:derby:../../db/derby/meldedatenDB;create=true
+    #UserName admin
+    #Password pass
+</Resource>
+
 </tomee>

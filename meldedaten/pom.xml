@@ -70,6 +70,7 @@
 							<config>${project.basedir}/src/test/tomee/conf</config>
 							<libs>
 								<lib>org.postgresql:postgresql:42.1.4</lib>
+								<lib>org.apache.derby:derby:10.13.1.1</lib>
 							</libs>
 							<synchronization>
 								<resourcesDir />
@@ -82,6 +83,12 @@
 								<groupId>org.postgresql</groupId>
 								<artifactId>postgresql</artifactId>
 								<version>42.1.4</version>
+							</dependency>
+							<!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+							<dependency>
+								<groupId>org.apache.derby</groupId>
+								<artifactId>derby</artifactId>
+								<version>10.13.1.1</version>
 							</dependency>
 						</dependencies>
 					</plugin>
