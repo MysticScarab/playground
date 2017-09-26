@@ -3,7 +3,7 @@
 ## Modul meldedaten
 ### Start
 Start via Maven oder Eclips Run as Maven build...:
-mvn clean package -Ptomee tomee:run
+`mvn clean package -Ptomee tomee:run`
 
 ### DB-Setup (embedded Derby)
 Gemäß der Konfiguration des TomEE liegt die Datenbank im Verzeichnis {git_root}/meldedaten/db/derby/meldedatenDB.
