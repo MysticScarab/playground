@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/tryout/base/layout.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tryout="http://scarab.local">
+	<ui:define name="content">
+		<h:outputText value="Startseite - tryout" />
+		<h:panelGrid columns="1">
+		<c:set var="action" value="doFancy" />
+			<tryout:fancyButtonLine buttonBean="#{fancyButtonBean}" action="#{action}" />
+			
+			<tryout:fancyButton buttonValue="#{fancyButtonBean.label}" buttonAction="#{fancyButtonBean[doFancy]}" />
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>

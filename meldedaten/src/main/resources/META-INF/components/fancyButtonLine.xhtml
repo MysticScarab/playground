@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:tryout="http://scarab.local">
+	<ui:component>
+		<h:commandButton value="Button1" action="#{buttonBean[action]}" />
+		<tryout:fancyButton buttonValue="#{buttonBean.label}" buttonAction="#{buttonBean[action]}" />
+	</ui:component>
+</ui:composition>

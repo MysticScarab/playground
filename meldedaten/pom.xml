@@ -67,6 +67,8 @@
 						<configuration>
 							<tomeeVersion>1.7.4</tomeeVersion>
 							<tomeeClassifier>plus</tomeeClassifier>
+							<args>-Dtomee.serialization.class.whitelist=
+								  -Dtomee.serialization.class.blacklist=-</args>
 							<config>${project.basedir}/src/test/tomee/conf</config>
 							<libs>
 								<lib>org.postgresql:postgresql:42.1.4</lib>
@@ -74,6 +76,9 @@
 							</libs>
 							<synchronization>
 								<resourcesDir />
+								<extensions>
+									<extension>xhtml</extension>
+								</extensions>
 							</synchronization>
 							<reloadOnUpdate>true</reloadOnUpdate>
 						</configuration>
