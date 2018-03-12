@@ -77,8 +77,14 @@
 							<synchronization>
 								<resourcesDir />
 								<extensions>
-									<extension>xhtml</extension>
+									<extension>.class</extension>
 								</extensions>
+                                <updateOnlyExtensions>
+                                    <updateOnlyExtension>.xhtml</updateOnlyExtension>
+                                    <updateOnlyExtension>.html</updateOnlyExtension>
+                                    <updateOnlyExtension>.js</updateOnlyExtension>
+                                    <updateOnlyExtension>.css</updateOnlyExtension>
+                                </updateOnlyExtensions>
 							</synchronization>
 							<reloadOnUpdate>true</reloadOnUpdate>
 						</configuration>
