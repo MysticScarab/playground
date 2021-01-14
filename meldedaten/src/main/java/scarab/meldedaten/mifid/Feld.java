@@ -8,47 +8,49 @@ import javax.persistence.Id;
 @Entity
 public class Feld {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "feld_id")
-	private int feldId;
-	@Column(name = "nummer")
-	private String nummer;
-	@Column(name = "csv_name")
-	private String csvName;
-	@Column(name = "datentyp")
-	private String datentyp;
+  @Id
+  @GeneratedValue
+  @Column(name = "feld_id")
+  private int feldId;
 
-	public int getFeldId() {
-		return feldId;
-	}
+  @Column(name = "nummer")
+  private String nummer;
 
-	public void setFeldId(int feldId) {
-		this.feldId = feldId;
-	}
+  @Column(name = "csv_name")
+  private String csvName;
 
-	public String getNummer() {
-		return nummer;
-	}
+  @Column(name = "datentyp")
+  private String datentyp;
 
-	public void setNummer(String nummer) {
-		this.nummer = nummer;
-	}
+  public int getFeldId() {
+    return feldId;
+  }
 
-	public String getCsvName() {
-		return csvName;
-	}
+  public void setFeldId(int feldId) {
+    this.feldId = feldId;
+  }
 
-	public void setCsvName(String csvName) {
-		this.csvName = csvName;
-	}
+  public String getNummer() {
+    return nummer;
+  }
 
-	public String getDatentyp() {
-		return datentyp;
-	}
+  public void setNummer(String nummer) {
+    this.nummer = nummer;
+  }
 
-	public void setDatentyp(String datentyp) {
-		this.datentyp = datentyp;
-	}
+  public String getCsvName() {
+    return csvName;
+  }
 
+  public void setCsvName(String csvName) {
+    this.csvName = csvName;
+  }
+
+  public String getDatentyp() {
+    return datentyp;
+  }
+
+  public void setDatentyp(String datentyp) {
+    this.datentyp = datentyp;
+  }
 }

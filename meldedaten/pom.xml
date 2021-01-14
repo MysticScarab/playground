@@ -1,110 +1,112 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>scarab</groupId>
-	<artifactId>meldedaten</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>meldedaten</name>
-	<description>Prototyp Meldedaten</description>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>scarab</groupId>
+    <artifactId>meldedaten</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>meldedaten</name>
+    <description>Prototyp Meldedaten</description>
 
-	<dependencies>
-		<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.2.14</version>
-		</dependency>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.2.14</version>
+        </dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.25</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-impl -->
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-impl</artifactId>
-			<version>2.2.14</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.openejb</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>6.0-6</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
-	<build>
-		<finalName>meldedaten</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.2</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<profiles>
-		<profile>
-			<id>tomee</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.openejb.maven</groupId>
-						<artifactId>tomee-maven-plugin</artifactId>
-						<version>1.7.4</version>
-						<configuration>
-							<tomeeVersion>1.7.4</tomeeVersion>
-							<tomeeClassifier>plus</tomeeClassifier>
-							<args>-Dtomee.serialization.class.whitelist=
-								  -Dtomee.serialization.class.blacklist=-</args>
-							<config>${project.basedir}/src/test/tomee/conf</config>
-							<libs>
-								<lib>org.postgresql:postgresql:42.1.4</lib>
-								<lib>org.apache.derby:derby:10.13.1.1</lib>
-							</libs>
-							<synchronization>
-								<resourcesDir />
-								<extensions>
-									<extension>.class</extension>
-								</extensions>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-impl -->
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>2.2.14</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <finalName>meldedaten</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>tomee</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomee.maven</groupId>
+                        <artifactId>tomee-maven-plugin</artifactId>
+                        <version>8.0.5</version>
+                        <configuration>
+                            <tomeeClassifier>plus</tomeeClassifier>
+                            <args>-Dtomee.serialization.class.whitelist=
+                                -Dtomee.serialization.class.blacklist=-
+                            </args>
+                            <config>${project.basedir}/src/test/tomee/conf</config>
+                            <libs>
+                                <lib>org.postgresql:postgresql:42.1.4</lib>
+                                <lib>org.apache.derby:derby:10.13.1.1</lib>
+                            </libs>
+                            <synchronization>
+                                <resourcesDir/>
+                                <extensions>
+                                    <extension>.class</extension>
+                                </extensions>
                                 <updateOnlyExtensions>
                                     <updateOnlyExtension>.xhtml</updateOnlyExtension>
                                     <updateOnlyExtension>.html</updateOnlyExtension>
                                     <updateOnlyExtension>.js</updateOnlyExtension>
                                     <updateOnlyExtension>.css</updateOnlyExtension>
                                 </updateOnlyExtensions>
-							</synchronization>
-							<reloadOnUpdate>true</reloadOnUpdate>
-						</configuration>
-						<dependencies>
-							<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-							<dependency>
-								<groupId>org.postgresql</groupId>
-								<artifactId>postgresql</artifactId>
-								<version>42.1.4</version>
-							</dependency>
-							<!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
-							<dependency>
-								<groupId>org.apache.derby</groupId>
-								<artifactId>derby</artifactId>
-								<version>10.13.1.1</version>
-							</dependency>
-						</dependencies>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+                            </synchronization>
+                            <reloadOnUpdate>true</reloadOnUpdate>
+                        </configuration>
+                        <dependencies>
+                            <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+                            <dependency>
+                                <groupId>org.postgresql</groupId>
+                                <artifactId>postgresql</artifactId>
+                                <version>42.1.4</version>
+                            </dependency>
+                            <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+                            <dependency>
+                                <groupId>org.apache.derby</groupId>
+                                <artifactId>derby</artifactId>
+                                <version>10.13.1.1</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

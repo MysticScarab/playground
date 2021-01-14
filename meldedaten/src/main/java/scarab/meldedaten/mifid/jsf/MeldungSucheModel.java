@@ -2,13 +2,11 @@ package scarab.meldedaten.mifid.jsf;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import scarab.meldedaten.mifid.Basisdaten;
 import scarab.meldedaten.mifid.Status;
 import scarab.meldedaten.mifid.service.StatusService;
@@ -17,61 +15,61 @@ import scarab.meldedaten.mifid.service.StatusService;
 @RequestScoped
 public class MeldungSucheModel {
 
-	private Basisdaten basisdaten = new Basisdaten();
-	private List<Status> statusBtgListe = new ArrayList<Status>();
-	private List<Status> statusArmListe = new ArrayList<Status>();
-	private List<Status> statusNcaListe = new ArrayList<Status>();
-	
-	@EJB StatusService statusService;
+  private Basisdaten basisdaten = new Basisdaten();
+  private List<Status> statusBtgListe = new ArrayList<>();
+  private List<Status> statusArmListe = new ArrayList<>();
+  private List<Status> statusNcaListe = new ArrayList<>();
 
-	@Inject
-	private MeldungSucheErgebnisModel ergebnisModel;
+  @EJB
+  StatusService statusService;
 
-	public MeldungSucheErgebnisModel getErgebnisModel() {
-		return ergebnisModel;
-	}
+  @Inject
+  private MeldungSucheErgebnisModel ergebnisModel;
 
-	public void setErgebnisModel(MeldungSucheErgebnisModel ergebnisModel) {
-		this.ergebnisModel = ergebnisModel;
-	}
+  public MeldungSucheErgebnisModel getErgebnisModel() {
+    return ergebnisModel;
+  }
 
-	public Basisdaten getBasisdaten() {
-		return basisdaten;
-	}
+  public void setErgebnisModel(MeldungSucheErgebnisModel ergebnisModel) {
+    this.ergebnisModel = ergebnisModel;
+  }
 
-	public void setBasisdaten(Basisdaten basisdaten) {
-		this.basisdaten = basisdaten;
-	}
+  public Basisdaten getBasisdaten() {
+    return basisdaten;
+  }
 
-	public List<Status> getStatusBtgListe() {
-		return statusBtgListe;
-	}
+  public void setBasisdaten(Basisdaten basisdaten) {
+    this.basisdaten = basisdaten;
+  }
 
-	public void setStatusBtgListe(List<Status> statusBtgListe) {
-		this.statusBtgListe = statusBtgListe;
-	}
-	
-	public List<Status> getStatusArmListe() {
-		return statusArmListe;
-	}
+  public List<Status> getStatusBtgListe() {
+    return statusBtgListe;
+  }
 
-	public void setStatusArmListe(List<Status> statusArmListe) {
-		this.statusArmListe = statusArmListe;
-	}
+  public void setStatusBtgListe(List<Status> statusBtgListe) {
+    this.statusBtgListe = statusBtgListe;
+  }
 
-	public List<Status> getStatusNcaListe() {
-		return statusNcaListe;
-	}
+  public List<Status> getStatusArmListe() {
+    return statusArmListe;
+  }
 
-	public void setStatusNcaListe(List<Status> statusNcaListe) {
-		this.statusNcaListe = statusNcaListe;
-	}
+  public void setStatusArmListe(List<Status> statusArmListe) {
+    this.statusArmListe = statusArmListe;
+  }
 
-	@PostConstruct
-	private void setupStatusListen() {
-		statusBtgListe.addAll(statusService.getAlleStatusFuerGruppe("BTG"));
-		statusArmListe.addAll(statusService.getAlleStatusFuerGruppe("ARM"));
-		statusNcaListe.addAll(statusService.getAlleStatusFuerGruppe("NCA"));
-	}
+  public List<Status> getStatusNcaListe() {
+    return statusNcaListe;
+  }
 
+  public void setStatusNcaListe(List<Status> statusNcaListe) {
+    this.statusNcaListe = statusNcaListe;
+  }
+
+  @PostConstruct
+  private void setupStatusListen() {
+    statusBtgListe.addAll(statusService.getAlleStatusFuerGruppe("BTG"));
+    statusArmListe.addAll(statusService.getAlleStatusFuerGruppe("ARM"));
+    statusNcaListe.addAll(statusService.getAlleStatusFuerGruppe("NCA"));
+  }
 }
