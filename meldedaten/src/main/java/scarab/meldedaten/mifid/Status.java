@@ -8,49 +8,50 @@ import javax.persistence.Id;
 @Entity
 public class Status {
 
-	@Id
-	@GeneratedValue
-	@Column(name="status_id")
-	private int statusId;
-	@Column(name="gruppe")
-	private String gruppe;
-	@Column(name="name")
-	private String name;
+  @Id
+  @GeneratedValue
+  @Column(name = "status_id")
+  private int statusId;
 
-	/**
-	 * Default Konstruktor
-	 */
-	public Status() {
-	}
-	
-	public Status(int statusId, String gruppe, String name) {
-		this.statusId = statusId;
-		this.gruppe = gruppe;
-		this.name = name;
-	}
+  @Column(name = "gruppe")
+  private String gruppe;
 
-	public int getStatusId() {
-		return statusId;
-	}
+  @Column(name = "name")
+  private String name;
 
-	public void setStatusId(int statusId) {
-		this.statusId = statusId;
-	}
+  /**
+   * Default Konstruktor
+   */
+  public Status() {
+  }
 
-	public String getGruppe() {
-		return gruppe;
-	}
+  public Status(int statusId, String gruppe, String name) {
+    this.statusId = statusId;
+    this.gruppe = gruppe;
+    this.name = name;
+  }
 
-	public void setGruppe(String gruppe) {
-		this.gruppe = gruppe;
-	}
+  public int getStatusId() {
+    return statusId;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public void setStatusId(int statusId) {
+    this.statusId = statusId;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public String getGruppe() {
+    return gruppe;
+  }
 
+  public void setGruppe(String gruppe) {
+    this.gruppe = gruppe;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 }

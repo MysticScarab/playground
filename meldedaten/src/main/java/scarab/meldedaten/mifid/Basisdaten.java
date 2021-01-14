@@ -1,7 +1,6 @@
 package scarab.meldedaten.mifid;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,96 +9,101 @@ import javax.persistence.Id;
 @Entity
 public class Basisdaten {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "meldung_id")
-	private long meldungId;
-	@Column(name = "status_btg")
-	private int statusBtg;
-	// private Status statusBtg;
-	@Column(name = "status_arm")
-	private int statusArm;
-	@Column(name = "status_nca")
-	private int statusNca;
-	@Column(name = "transaktionsnummer")
-	private String transaktionsnummer;
-	@Column(name = "user_field_3")
-	private String userField3;
-	@Column(name = "user_field_2")
-	private String userField2;
-	@Column(name = "meldetag")
-	private Date meldetag;
+  @Id
+  @GeneratedValue
+  @Column(name = "meldung_id")
+  private long meldungId;
 
-	public long getMeldungId() {
-		return meldungId;
-	}
+  @Column(name = "status_btg")
+  private int statusBtg;
+  // private Status statusBtg;
+  @Column(name = "status_arm")
+  private int statusArm;
 
-	public void setMeldungId(long meldungId) {
-		this.meldungId = meldungId;
-	}
+  @Column(name = "status_nca")
+  private int statusNca;
 
-	public int getStatusBtg() {
-		return statusBtg;
-	}
+  @Column(name = "transaktionsnummer")
+  private String transaktionsnummer;
 
-	public void setStatusBtg(int statusBtg) {
-		this.statusBtg = statusBtg;
-	}
+  @Column(name = "user_field_3")
+  private String userField3;
 
-	// public Status getStatusBtg() {
-	// return statusBtg;
-	// }
-	//
-	// public void setStatusBtg(Status statusBtg) {
-	// this.statusBtg = statusBtg;
-	// }
+  @Column(name = "user_field_2")
+  private String userField2;
 
-	public int getStatusArm() {
-		return statusArm;
-	}
+  @Column(name = "meldetag")
+  private Date meldetag;
 
-	public void setStatusArm(int statusArm) {
-		this.statusArm = statusArm;
-	}
+  public long getMeldungId() {
+    return meldungId;
+  }
 
-	public int getStatusNca() {
-		return statusNca;
-	}
+  public void setMeldungId(long meldungId) {
+    this.meldungId = meldungId;
+  }
 
-	public void setStatusNca(int statusNca) {
-		this.statusNca = statusNca;
-	}
+  public int getStatusBtg() {
+    return statusBtg;
+  }
 
-	public String getTransaktionsnummer() {
-		return transaktionsnummer;
-	}
+  public void setStatusBtg(int statusBtg) {
+    this.statusBtg = statusBtg;
+  }
 
-	public void setTransaktionsnummer(String transaktionsnummer) {
-		this.transaktionsnummer = transaktionsnummer;
-	}
+  // public Status getStatusBtg() {
+  // return statusBtg;
+  // }
+  //
+  // public void setStatusBtg(Status statusBtg) {
+  // this.statusBtg = statusBtg;
+  // }
 
-	public String getUserField3() {
-		return userField3;
-	}
+  public int getStatusArm() {
+    return statusArm;
+  }
 
-	public void setUserField3(String userField3) {
-		this.userField3 = userField3;
-	}
+  public void setStatusArm(int statusArm) {
+    this.statusArm = statusArm;
+  }
 
-	public String getUserField2() {
-		return userField2;
-	}
+  public int getStatusNca() {
+    return statusNca;
+  }
 
-	public void setUserField2(String userField2) {
-		this.userField2 = userField2;
-	}
+  public void setStatusNca(int statusNca) {
+    this.statusNca = statusNca;
+  }
 
-	public Date getMeldetag() {
-		return meldetag;
-	}
+  public String getTransaktionsnummer() {
+    return transaktionsnummer;
+  }
 
-	public void setMeldetag(Date meldetag) {
-		this.meldetag = meldetag;
-	}
+  public void setTransaktionsnummer(String transaktionsnummer) {
+    this.transaktionsnummer = transaktionsnummer;
+  }
 
+  public String getUserField3() {
+    return userField3;
+  }
+
+  public void setUserField3(String userField3) {
+    this.userField3 = userField3;
+  }
+
+  public String getUserField2() {
+    return userField2;
+  }
+
+  public void setUserField2(String userField2) {
+    this.userField2 = userField2;
+  }
+
+  public Date getMeldetag() {
+    return meldetag;
+  }
+
+  public void setMeldetag(Date meldetag) {
+    this.meldetag = meldetag;
+  }
 }
