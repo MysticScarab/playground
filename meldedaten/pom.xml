@@ -65,7 +65,7 @@
                     <plugin>
                         <groupId>org.apache.tomee.maven</groupId>
                         <artifactId>tomee-maven-plugin</artifactId>
-                        <version>8.0.5</version>
+                        <version>8.0.6</version>
                         <configuration>
                             <tomeeClassifier>plus</tomeeClassifier>
                             <args>-Dtomee.serialization.class.whitelist=
