@@ -1,16 +1,13 @@
 package scarab.meldedaten.mifid;
 
+import javax.persistence.*;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class Basisdaten {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "meldung_id")
   private long meldungId;
 
@@ -50,14 +47,6 @@ public class Basisdaten {
   public void setStatusBtg(int statusBtg) {
     this.statusBtg = statusBtg;
   }
-
-  // public Status getStatusBtg() {
-  // return statusBtg;
-  // }
-  //
-  // public void setStatusBtg(Status statusBtg) {
-  // this.statusBtg = statusBtg;
-  // }
 
   public int getStatusArm() {
     return statusArm;

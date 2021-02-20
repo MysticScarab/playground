@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomee>
-  <!-- see http://tomee.apache.org/containers-and-resources.html -->
+    <!-- see http://tomee.apache.org/containers-and-resources.html -->
 
-  <!-- activate next line to be able to deploy applications in apps -->
-  <!-- <Deployments dir="apps" /> -->
-  <!-- 
-<Resource id="jdbc/datasource" type="javax.sql.DataSource">
-    #  PostgreSQL example
-    #
-    #  This connector will not work until you download the driver at:
-    #  http://jdbc.postgresql.org/download.html
-    JdbcDriver = org.postgresql.Driver
-    JdbcUrl = jdbc:postgresql://localhost/test_db
-    jtaManaged = true
-    #UserName     postgres
-    #Password     pass
-</Resource>
- -->
-<Resource id="jdbc/datasource" type="javax.sql.DataSource">
-    #Embedded Derby example
-
-    JdbcDriver org.apache.derby.jdbc.EmbeddedDriver
-    JdbcUrl jdbc:derby:../../db/derby/meldedatenDB;create=true
-    #UserName admin
-    #Password pass
-</Resource>
+    <Resource id="jdbc/datasource" type="javax.sql.DataSource">
+        jdbcDriver = org.hsqldb.jdbcDriver
+        jdbcUrl = jdbc:hsqldb:mem:hsqldb
+        jtaManaged = true
+    </Resource>
 
 </tomee>

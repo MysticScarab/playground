@@ -1,17 +1,14 @@
 # playground
 
 ## Modul meldedaten
+
 ### Start
+
 Start via Maven oder Eclips Run as Maven build...:
 `mvn clean package -Ptomee tomee:run`
 
-### DB-Setup (embedded Derby)
-Gemäß der Konfiguration des TomEE liegt die Datenbank im Verzeichnis {git_root}/meldedaten/db/derby/meldedatenDB.
+### Embedded InMemory DB
 
-Zunächst muss das Datenmodell angelegt werden. Im Anschluss werden initale Daten für den Test eingefügt. Hierzu
-stehen die folgenden Skripte (in {git_root}/meldedaten/db/derby/) zur Verfügung:
-* datenmodell.sql
-* initial_data.sql
-
-Für Windows liegt ein Hilfsskript (windows_setup.bat) bereit. Hier muss der Pfad für das JDK entsprechend der
-lokalen Umgebung angepasst werden.
+Bei Verwendung des TomEE-Plugins wird der Server bereits mit einer HSQL-Datenbank gestartet. Für das Profil wird eine
+eigene `persistence.xml` verwendet (in `src/test/resources/META-INF`). Über diese Konfiguration wird mittels JPA das
+Datenbankschema anhand der Entities angelegt und mit initialen Daten versorgt (`initial_data.sql`).
