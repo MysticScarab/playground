@@ -1,14 +1,15 @@
 package scarab.meldedaten.mifid.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import scarab.meldedaten.mifid.Basisdaten;
+import scarab.meldedaten.mifid.Feld;
+import scarab.meldedaten.mifid.Meldedaten;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import scarab.meldedaten.mifid.Basisdaten;
-import scarab.meldedaten.mifid.Feld;
-import scarab.meldedaten.mifid.Meldedaten;
+import java.util.ArrayList;
+import java.util.List;
 
 @Stateless
 public class MeldungService {
@@ -41,6 +42,9 @@ public class MeldungService {
     Meldedaten feld4 = new Meldedaten();
     feld4.setFeldId(4);
     feld4.setWert("Wert4 fuer MeldungId " + basisdaten.getMeldungId());
+    Meldedaten feld5 = new Meldedaten();
+    feld5.setFeldId(5);
+    feld5.setWert("Wert5 fuer MeldungId " + basisdaten.getMeldungId());
 
     List<Meldedaten> meldedatenListe = new ArrayList<>();
 
@@ -48,6 +52,7 @@ public class MeldungService {
     meldedatenListe.add(feld2);
     meldedatenListe.add(feld3);
     meldedatenListe.add(feld4);
+    meldedatenListe.add(feld5);
 
     return meldedatenListe;
   }
