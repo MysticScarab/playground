@@ -1,6 +1,10 @@
 package scarab.meldedaten.mifid.jsf;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -8,6 +12,9 @@ import scarab.meldedaten.mifid.Basisdaten;
 import scarab.meldedaten.mifid.Feld;
 import scarab.meldedaten.mifid.Meldedaten;
 
+/**
+ * Frontendmodel für die Detailansicht einer Meldung.
+ */
 @Named
 @RequestScoped
 public class MeldungDetailModel {
@@ -41,6 +48,12 @@ public class MeldungDetailModel {
     this.feldListe = feldListe;
   }
 
+  /**
+   * Die Methode liefert eine Liste mit Feldkonfigurationen ({@link Feld}) und den dazugehörigen
+   * Werten ({@link Meldedaten}). Die Liste ist sortiert nach der Feld-ID.
+   *
+   * @return Liste mit Feldkonfigurationen und den tatsächlichen Werten
+   */
   // TODO: Scope bzw. Auswertbarkeit prüfen, wegen erneuter Auswertung bei Action auf Detail-Seite
   public List<Entry<Feld, Meldedaten>> getFelderMitMeldedaten() {
     List<Entry<Feld, Meldedaten>> kombinierteListe;

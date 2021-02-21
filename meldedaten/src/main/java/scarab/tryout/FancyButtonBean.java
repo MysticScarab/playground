@@ -4,6 +4,9 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
+/**
+ * Backing Bean für den FancyButton.
+ */
 @Named
 @SessionScoped
 public class FancyButtonBean implements Serializable {

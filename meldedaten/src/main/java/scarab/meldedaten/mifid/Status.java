@@ -1,7 +1,14 @@
 package scarab.meldedaten.mifid;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+/**
+ * Model für Statusausprägungen.
+ */
 @Entity
 public class Status {
 
@@ -16,12 +23,16 @@ public class Status {
   @Column(name = "name")
   private String name;
 
-  /**
-   * Default Konstruktor
-   */
   public Status() {
   }
 
+  /**
+   * CTor mit allen Attributen.
+   *
+   * @param statusId ID des Status
+   * @param gruppe   Statusgruppe
+   * @param name     Name des Status
+   */
   public Status(int statusId, String gruppe, String name) {
     this.statusId = statusId;
     this.gruppe = gruppe;

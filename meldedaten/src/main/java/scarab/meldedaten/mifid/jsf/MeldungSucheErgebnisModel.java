@@ -6,6 +6,9 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import scarab.meldedaten.mifid.Basisdaten;
 
+/**
+ * Frontendmodel für die Aufnahme von Suchergebnissen.
+ */
 @SessionScoped
 public class MeldungSucheErgebnisModel implements Serializable {
 

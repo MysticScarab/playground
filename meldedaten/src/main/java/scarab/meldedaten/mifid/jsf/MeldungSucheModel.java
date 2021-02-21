@@ -11,6 +11,9 @@ import scarab.meldedaten.mifid.Basisdaten;
 import scarab.meldedaten.mifid.Status;
 import scarab.meldedaten.mifid.service.StatusService;
 
+/**
+ * Frontendmodel für die Suche nach Meldungen.
+ */
 @Named
 @RequestScoped
 public class MeldungSucheModel {

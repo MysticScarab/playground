@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Basisdaten einer Meldung. In den Basisdaten sind alle allgemeinen Daten zu einer Meldung
+ * zusammengefasst (ID der Meldung, diverse Statusangaben, Transaktionsnummer, ...).
+ */
 @Entity
 public class Basisdaten implements Serializable {
 
