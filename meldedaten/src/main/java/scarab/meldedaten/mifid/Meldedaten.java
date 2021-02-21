@@ -1,5 +1,9 @@
 package scarab.meldedaten.mifid;
 
+/**
+ * Die Meldedaten umfassen die ID der betroffenen Meldung, die ID der Feldkonfiguration und den Wert
+ * des Feldes.
+ */
 public class Meldedaten {
 
   private long meldungId;

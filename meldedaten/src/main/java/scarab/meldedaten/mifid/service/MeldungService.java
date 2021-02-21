@@ -1,26 +1,38 @@
 package scarab.meldedaten.mifid.service;
 
-import scarab.meldedaten.mifid.Basisdaten;
-import scarab.meldedaten.mifid.Feld;
-import scarab.meldedaten.mifid.Meldedaten;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
-import java.util.List;
+import scarab.meldedaten.mifid.Basisdaten;
+import scarab.meldedaten.mifid.Feld;
+import scarab.meldedaten.mifid.Meldedaten;
 
+/**
+ * Serivce für den Zugriff auf Meldedaten.
+ */
 @Stateless
 public class MeldungService {
 
   @PersistenceContext
   private EntityManager entityManager;
 
+  /**
+   * Lesen von Basisdaten anhand der übergebenen Selektionskritieren. Es werden nur die Statusfelder
+   * als Kriterium berücksichtig.
+   *
+   * @param basisdaten {@link Basisdaten} mit Selektionskritieren
+   * @return {@link List} mit {@link Basisdaten}
+   */
   public List<Basisdaten> holeBasisdatenGefiltert(Basisdaten basisdaten) {
     TypedQuery<Basisdaten> query =
         entityManager.createQuery(
-            "select b from Basisdaten b where b.statusBtg = :statusBtg and b.statusArm = :statusArm and b.statusNca = :statusNca",
+            "select b from Basisdaten b"
+                + " where b.statusBtg = :statusBtg"
+                + " and b.statusArm = :statusArm"
+                + " and b.statusNca = :statusNca",
             Basisdaten.class);
     query.setParameter("statusBtg", basisdaten.getStatusBtg());
     query.setParameter("statusArm", basisdaten.getStatusArm());
@@ -29,6 +41,12 @@ public class MeldungService {
     return query.getResultList();
   }
 
+  /**
+   * Liest alle vorhandenen Meldungsdaten zu den übergebenen {@link Basisdaten}.
+   *
+   * @param basisdaten {@link Basisdaten} für die Selektion
+   * @return {@link List} mit {@link Meldedaten}
+   */
   public List<Meldedaten> holeMeldedatenFuerBasisdaten(Basisdaten basisdaten) {
     Meldedaten feld1 = new Meldedaten();
     feld1.setFeldId(1);
@@ -57,6 +75,11 @@ public class MeldungService {
     return meldedatenListe;
   }
 
+  /**
+   * Liefert eine Liste mit allen Feldkonfigurationen sortiert nach Feld-ID.
+   *
+   * @return {@link List} mit {@link Feld}
+   */
   public List<Feld> holeFelder() {
     List<Feld> ergebnis;
 

@@ -10,6 +10,9 @@ import javax.inject.Named;
 import scarab.meldedaten.mifid.Basisdaten;
 import scarab.meldedaten.mifid.service.MeldungService;
 
+/**
+ * FormBean für die Meldungssuche.
+ */
 @Named
 @RequestScoped
 public class MeldungSucheForm {
@@ -26,12 +29,23 @@ public class MeldungSucheForm {
   @Inject
   private MeldungDetailModel detailModel;
 
+  /**
+   * Setzt ein ggf. vorhandenes Ergebnis zurück und leitet auf die Suchmaske weiter.
+   *
+   * @return {@link #NAV_SUCHE}
+   */
   public String initialisiereSuche() {
     model.getErgebnisModel().setErgebnis(new ArrayList<>());
 
     return NAV_SUCHE;
   }
 
+  /**
+   * Führt die Suche gegen den Businessservice durch. Das Ergebnis wird im Model abgelegt. Eine
+   * Navigation wird nicht durchgeführt.
+   *
+   * @return {@code null}, um auf der aktuellen Maske zu bleiben
+   */
   public String executeSuche() {
     FacesMessage message = new FacesMessage("Suche durchgeführt.");
     FacesContext.getCurrentInstance().addMessage(null, message);
@@ -43,6 +57,13 @@ public class MeldungSucheForm {
     return null;
   }
 
+  /**
+   * Lädt die Detaildaten für die aktuell gewählte Meldung und leitet anschließend auf die
+   * Detailseite weiter.
+   *
+   * @param gewaehlteBasisdaten {@link Basisdaten} zu lesenden Meldung
+   * @return {@link #NAV_DETAIL} bei Erfolg und {@code null}, wenn keine Meldung gewählt wurde
+   */
   public String oeffneDetail(Basisdaten gewaehlteBasisdaten) {
     if (null != gewaehlteBasisdaten) {
 

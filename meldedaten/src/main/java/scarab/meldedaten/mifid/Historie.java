@@ -2,6 +2,9 @@ package scarab.meldedaten.mifid;
 
 import java.time.LocalDate;
 
+/**
+ * Modelklasse für die Historisierung von Benutzeränderungen.
+ */
 public class Historie {
 
   private long meldungId;

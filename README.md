@@ -1,5 +1,18 @@
 # playground
 
+## Checkstyle
+
+Das Projekt nutzt eine angepasste Version der Google-Checks aus Checkstyle 8.40. Die Anpassung war erforderlich, um beim
+Check während des Builds auch die `@SuppressWarnings`-Annotationen für Checkstyle zu berücksichtigen.
+
+Konkret wurden lediglich zwei Zeilen ergänzt:
+
+* `<module name="SuppressWarningsFilter"/>` im Modul `Checker`
+* `<module name="SuppressWarningsHolder"/>` im Modul `TreeWalker`
+
+Die Checkstyle-Konfiguration wird ebenfalls in IntelliJ im Checkstyle-Plugin verwendet, damit sich Entwicklungsumgebung
+und Mavenbuild gleich verhalten.
+
 ## Modul meldedaten
 
 ### Start

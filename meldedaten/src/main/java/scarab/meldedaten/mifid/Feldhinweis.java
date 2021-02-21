@@ -1,5 +1,8 @@
 package scarab.meldedaten.mifid;
 
+/**
+ * Modellklasse für Hinweismeldungen zu Feldern.
+ */
 public class Feldhinweis {
 
   private long meldungId;
