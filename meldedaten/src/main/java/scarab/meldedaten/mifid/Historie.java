@@ -1,6 +1,6 @@
 package scarab.meldedaten.mifid;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Historie {
 
@@ -9,7 +9,7 @@ public class Historie {
   private String wertAlt;
   private String wertNeu;
   private String benutzer;
-  private Date zeitstempel;
+  private LocalDate zeitstempel;
 
   public long getMeldungId() {
     return meldungId;
@@ -51,11 +51,11 @@ public class Historie {
     this.benutzer = benutzer;
   }
 
-  public Date getZeitstempel() {
+  public LocalDate getZeitstempel() {
     return zeitstempel;
   }
 
-  public void setZeitstempel(Date zeitstempel) {
+  public void setZeitstempel(LocalDate zeitstempel) {
     this.zeitstempel = zeitstempel;
   }
 }
