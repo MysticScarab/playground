@@ -1,10 +1,17 @@
 package scarab.meldedaten.mifid;
 
-import javax.persistence.*;
-import java.util.Date;
+import java.io.Serializable;
+import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Basisdaten {
+public class Basisdaten implements Serializable {
+
+  private static final long serialVersionUID = 1L;
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +37,7 @@ public class Basisdaten {
   private String userField2;
 
   @Column(name = "meldetag")
-  private Date meldetag;
+  private LocalDate meldetag;
 
   public long getMeldungId() {
     return meldungId;
@@ -88,11 +95,11 @@ public class Basisdaten {
     this.userField2 = userField2;
   }
 
-  public Date getMeldetag() {
+  public LocalDate getMeldetag() {
     return meldetag;
   }
 
-  public void setMeldetag(Date meldetag) {
+  public void setMeldetag(LocalDate meldetag) {
     this.meldetag = meldetag;
   }
 }
