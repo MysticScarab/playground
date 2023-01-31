@@ -19,7 +19,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
 
-        <checkstyle.version>8.41.1</checkstyle.version>
+        <checkstyle.version>10.7.0</checkstyle.version>
         <spotbugs.version>4.2.3</spotbugs.version>
         <findsecbugs.version>1.12.0</findsecbugs.version>
     </properties>
